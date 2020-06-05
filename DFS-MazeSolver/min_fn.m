@@ -1,0 +1,18 @@
+% Function to return the index of the node with minimum f(n) in QUEUE
+% Copyright 2009-2010 The MathWorks, Inc.
+
+function i_min = min_fn(QUEUE, QUEUE_COUNT)
+ k = 1;
+ temp_array = [];
+ for j = 1 : QUEUE_COUNT
+     if (QUEUE(j, 1) == 1)
+         temp_array(k, :) = [QUEUE(j, :) j];
+         k = k + 1;
+     end
+ end % get all nodes that are on QUEUE
+ 
+ if size(temp_array ~= 0)
+     i_min = temp_array(k-1, 6);
+ else
+     i_min = -1; % empty i.e no more paths are available.
+ end
